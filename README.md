@@ -1,6 +1,7 @@
 # Google Apps Script
 
 ## Description
-Some scripts made in a volunteer work at my church.
 
-When updating the database, it inserts the people who were approved in the interview in a specific tab of the spreadsheet.
+Some scripts made in Apps Scripts in volunteer work at my church.
+
+The script fetches data from an url and fills it into the spreadsheet.
