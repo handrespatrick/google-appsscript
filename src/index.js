@@ -1,18 +1,16 @@
-function onOpen() {
-  const ui = SpreadsheetApp.getUi();
-  // Or DocumentApp or FormApp.
-  ui.createMenu('App Script')
-      .addItem('Preencher CPFs faltantes Operacional', 'preencherPessoasDaNossaResponsabilidade')
-      .addItem('Preencher CPFs faltantes Operacional_Exceção', 'preencherPessoasDeOutrosMinisterios')
-      .addToUi();
-}
+import { GetDataAndInsert } from "./usecase/get-data-and-insert-usecase";
 
-function onEdit(e){
-  const spreadSheet = e.source;
-  const sheetName = spreadSheet.getActiveSheet().getName();
+async function updateDataAndInsert() {
+  const url = "https://your-url.com";
+  const options = {
+    method: "POST",
+    headers: {
+      Cookie: "your-cookie",
+    },
+    payload: "your-payload",
+    contentType: "application/x-www-form-urlencoded",
+  };
+  const getData = new GetDataAndInsert("your-sheet1");
 
-  if(sheetName === 'Base_Geral'){
-    preencherPessoasDaNossaResponsabilidade()
-    preencherPessoasDeOutrosMinisterios()
-  }
+  getData.handle(url, options);
 }
